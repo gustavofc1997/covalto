@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="all_dimen_10">10dp</dimen>
+    <dimen name="all_dimen_12">12dp</dimen>
+    <dimen name="all_dimen_8">8dp</dimen>
+    <dimen name="all_dimen_20">20dp</dimen>
+    <dimen name="all_dimen_40">40dp</dimen>
+    <dimen name="font_15">15sp</dimen>
+    <dimen name="font_20">20sp</dimen>
+</resources>

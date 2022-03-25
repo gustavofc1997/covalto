@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gustavofc97.covalto.home.viewmodels.PostListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_post_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:post_list="@{viewModel.postList}" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/pb_items_loading"
+            style="@style/Widget.Material3.CircularProgressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:indicatorColor="@color/purple_200"
+            app:indicatorSize="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gustavofc97.covalto.detail.viewmodel.PostDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/all_dimen_12"
+        tools:context=".detail.ui.PostDetailFragment">
+
+        <TextView
+            android:id="@+id/tv_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_description"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_10"
+            android:text="@{viewModel.postDescription}"
+            android:textSize="@dimen/font_15"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_title" />
+
+        <TextView
+            android:id="@+id/tv_user_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_20"
+            android:text="@string/label_user"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_content" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_10"
+            android:text="@{String.format(@string/format_user_name, viewModel.userName)}"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_title"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_10"
+            android:text="@{String.format(@string/format_user_email, viewModel.userEmail)}"
+            android:textSize="@dimen/font_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/tv_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_10"
+            android:text="@{String.format(@string/format_user_phone, viewModel.userPhone)}"
+            android:textSize="@dimen/font_15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_email"
+            tools:text="Phone" />
+
+        <TextView
+            android:id="@+id/tv_user_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_10"
+            android:text="@{String.format(@string/format_user_website, viewModel.userWebsite)}"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_phone"
+            tools:text="Website" />
+
+        <TextView
+            android:id="@+id/tv_comments_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_dimen_20"
+            android:text="@string/label_comments"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_website" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_comments"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/all_dimen_12"
+            android:layout_marginBottom="@dimen/all_dimen_12"
+            android:orientation="vertical"
+            app:comment_list="@{viewModel.commentList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comments_title"
+            tools:listitem="@layout/layout_item_comment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
